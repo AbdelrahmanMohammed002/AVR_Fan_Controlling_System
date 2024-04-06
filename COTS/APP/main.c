@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
     MDIO_vSetPinValue(PORT_A, 0, LOW); // Ensure internal pull-down resistor
 
     u16 local_u16ADC_value = 0;
-    u8 local_u8Digital_value = 0;
+    u16 local_u8Digital_value = 0;
     u8 local_u8Temperature = 0;
     u8 local_u8LCD_value[5];
 
@@ -69,8 +69,8 @@ int main(int argc, char **argv) {
         local_u16ADC_value = MADC_u16GetResult();
 
         // Map ADC value to temperature (0-255)
-        local_u8Digital_value = (u8)((local_u16ADC_value * 255) / 1023);
-        local_u8Temperature = local_u8Digital_value;
+        local_u8Digital_value = ((local_u16ADC_value * 2560.0) / 1023);
+        local_u8Temperature = local_u8Digital_value/10;
 
         // Control DC fan based on temperature
         if (local_u8Temperature < 30) {
