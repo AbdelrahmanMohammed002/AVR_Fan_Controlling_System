@@ -1,0 +1,67 @@
+/*
+ * ADC_Config.h
+ *
+ *  Created on: Feb 21, 2024
+ *      Author: Abdelrahman (Ta'laab) Mohammed
+ *		Github: https://github.com/AbdelrahmanMohammed002
+ */
+
+#ifndef MCAL_ADC_DRIVER_ADC_CONFIG_H_
+#define MCAL_ADC_DRIVER_ADC_CONFIG_H_
+
+/*
+ * Configure the voltage reference
+ * range:
+ * ADC_VOLT_REF_AVCC
+ * ADC_VOLT_REF_AREF
+ * ADC_VOLT_REF_INTRENAL ==>2.56 volts
+ * */
+#define ADC_VOLTAGE_REF_SELECTOR_msk	ADC_VOLT_REF_INTRENAL
+
+#define ADC_VOLTAGE_REF_mv				5000
+#define ADC_MAX_NUMBER_OF_STEPS			1024	//2 ^ 10 bits ==1024
+
+/*
+ * Configure ADC MODE
+ * range:
+ * ADC_MODE_AUTO_TRIGGER
+ * ADC_MODE_SINGLE_CONVERSION
+ * */
+#define ADC_MODE_SELECTOR	ADC_MODE_SINGLE_CONVERSION
+
+/*
+ * Configure ADC ADJUSTMENT
+ * range:
+ * ADC_RIGHT_ADJUSTED
+ * ADC_LEFT_ADJUSTED
+ * */
+#define ADC_ADJUSTMENT_SELECTOR		ADC_RIGHT_ADJUSTED
+
+/*
+ * Configure ADC Prescaler
+ * range:
+ * ADC_PRESCALER_2_msk
+ * ADC_PRESCALER_4_msk
+ * ADC_PRESCALER_8_msk
+ * ADC_PRESCALER_16_msk
+ * ADC_PRESCALER_32_msk
+ * ADC_PRESCALER_64_msk
+ * ADC_PRESCALER_128_msk
+ * */
+#define ADC_PRESCALER_SELECTOR		ADC_PRESCALER_8_msk
+
+/*
+ * Configure ADC Trigger Source
+ * range:
+ * ADC_AUTO_TRIGGER_FREE_RUNNING_msk
+ * ADC_AUTO_TRIGGER_ANALOG_COMP_msk
+ * ADC_AUTO_TRIGGER_EXTI0_msk
+ * ADC_AUTO_TRIGGER_TIMER0_COMP_msk
+ * ADC_AUTO_TRIGGER_TIMER0_OVF_msk
+ * ADC_AUTO_TRIGGER_TIMER1_COMP_msk
+ * ADC_AUTO_TRIGGER_TIMER1_OVF_msk
+ * ADC_AUTO_TRIGGER_TIMER1_CAPT_msk
+ * */
+#define ADC_AUTO_TRIG_SRC_SELECTOR		ADC_AUTO_TRIGGER_FREE_RUNNING_msk
+
+#endif /* MCAL_ADC_DRIVER_ADC_CONFIG_H_ */
