@@ -107,7 +107,9 @@ int main(int argc, char **argv) {
         HLCD_vMoveTo(1, 12);
         itoa(local_u8Temperature, local_u8LCD_value, 10);
         HLCD_vSendString(local_u8LCD_value);
-        HLCD_vMoveTo(1, 15);
+        if (local_u8Temperature<100) {
+			HLCD_vSendData(' ');
+		}
         HLCD_vSendData(0xDF); // Degree symbol
         _delay_ms(1000);
     }
